@@ -1,0 +1,217 @@
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.closeBtn{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2% 3%;
+  font-size: 1.2em;
+  margin: 10px;
+  background-color: #f9305f;
+  font-weight: 600;
+  color: white;
+  border: none;
+}
+
+.squares{
+  box-shadow: rgba(251, 84, 106, 0.9) 0px 2px 4px 0px, rgba(251, 65, 103, 0.9) 0px 2px 16px 0px;}
+
+.square {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 50px;
+  width: 50px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  color: #f9305f;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.game {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.name-inputs {
+  background-color: rgba(24, 24, 102, 0.937);
+  padding: 5%;
+  color: white;
+  font-size: 2em;
+  font-weight: 500;
+  font-family: cursive;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.name-inputs h2 {
+  text-align: center;
+  color: #ff8ba6;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 300px;
+  outline-color: lightcoral;
+  margin: 25px 10px;
+  color: #dd2953;
+  font-size: large;
+}
+
+.button-13 {
+  width: 100%;
+  font-size: 24px;
+  font-family: cursive;
+  touch-action: manipulation;
+  background: none;
+  position: relative;
+  border-width: 4px 12px;
+  border-style: solid;
+  border-color: transparent;
+  padding: 15px 40px;
+  text-align: center;
+  color: #fff;
+  transition-property: transform;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  margin: 50px 0;
+}
+
+.button-13:active {
+  transform: scale(0.92);
+}
+
+.button-13-background {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  clip-path: polygon(12px 0, calc(100% - 12px) 0%, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0% calc(100% - 12px), 0% 12px);
+  background-image: radial-gradient(transparent, rgba(221, 41, 83, 0.8)), 
+                    linear-gradient(to bottom, #ff99aa, calc(12.5% - 1px), #ffb3c6, #dd2953 calc(12.5% + 1px) 50%, #bb1d47 50% calc(87.5% - 1px), #dd2953, #99203e calc(87.5% + 1px));
+  transition-property: filter;
+  transition-duration: 0.2s;
+  will-change: filter;
+}
+
+.button-13 .text {
+  background: linear-gradient(180deg, #FFE5C2 1%, #CDAF87 100%), #FFFFFF;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  z-index: 3;
+  position: relative;
+}
+
+@media (hover: hover) {
+  .button-13:hover .button-13-background {
+    filter: brightness(0.8);
+  }
+}
+
+.button-13:active .button-13-background {
+  filter: brightness(0.6);
+}
+
+.button-13-border {
+  position: absolute;
+  z-index: 1;
+  inset: -4px -12px;
+}
+
+@supports (-webkit-mask-box-image: inherit) or (mask-border: inherit) {
+  .button-13-border {
+    background-image: linear-gradient(to bottom, #bb9d7a 50%, #806d56 50%);
+    -webkit-mask-box-image-source: url("https://csspro.com/css-3d-buttons/buttons-img/baldurs-gate-3-border.svg");
+    -webkit-mask-box-image-slice: 15 23;
+    -webkit-mask-box-image-width: 15px 23px;
+    -webkit-mask-box-image-repeat: repeat;
+    mask-border-source: url("https://csspro.com/css-3d-buttons/buttons-img/baldurs-gate-3-border.svg");
+    mask-border-slice: 15 23;
+    mask-border-width: 15px 23px;
+    mask-border-repeat: repeat;
+  }
+}
+
+@supports not ((-webkit-mask-box-image: inherit) or (mask-border: inherit)) {
+  .button-13-border {
+    border-width: 15px 23px;
+    border-style: solid;
+    border-color: transparent;
+    border-image-source: url("https://csspro.com/css-3d-buttons/buttons-img/baldurs-gate-3-border-inverted.svg");
+    border-image-slice: 15 23;
+    border-image-width: 15px 23px;
+    border-image-repeat: repeat;
+    background-image: linear-gradient(#000, #000), linear-gradient(to bottom, #bb9d7a 50%, #806d56 50%);
+    background-origin: content-box, border-box;
+    background-repeat: no-repeat;
+    filter: url("#remove-black-button-13");
+  }
+}
+
+.board{
+  background-color: rgba(24, 24, 102, 0.937);
+  padding: 5%;
+  width: 500px;
+  height:60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.game-info{
+  color: white;
+  font-size: 1.5em;
+  font-weight: 500;
+  font-family: cursive;
+  margin: 15% 0;
+}
+
+.winner-message {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4CAF50;
+  animation: winner-animation 2s infinite;
+  text-align: center;
+}
+
+@keyframes winner-animation {
+  0% { transform: scale(1); color: #4CAF50; }
+  50% { transform: scale(1.2); color: #FFD700; } 
+  100% { transform: scale(1); color: #4CAF50; }
+}
+
+
+
+.draw-message {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f72b2b; 
+  animation: draw-animation 2s infinite;
+}
+
+@keyframes draw-animation {
+  0% { transform: scale(1); color: #f72b2b; }
+  50% { transform: scale(1.2); color: #ff0000; }
+  100% { transform: scale(1); color: #f72b2b; }
+}
+
